@@ -6,6 +6,7 @@ const connectButton = document.querySelector("#js-connect-button");
 
 const login = async (email, password) => {
   try {
+    console.log("test");
     const response = await fetch("http://localhost:5678/api/users/login", {
       method: "POST",
       headers: {
@@ -22,7 +23,7 @@ const login = async (email, password) => {
       const data = await response.json();
       const token = data.token;
       localStorage.setItem("token", token);
-      window.location.href = "./FrontEnd/index.html";
+      window.location.href = "./index.html";
       console.log(token);
     } else {
       errorMessage.textContent = "Erreur dans l’identifiant ou le mot de passe";
@@ -44,3 +45,6 @@ loginForm.addEventListener("submit", (e) => {
 
   login(email, password);
 });
+
+
+

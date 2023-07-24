@@ -1,5 +1,17 @@
 // ******************************* CALL GET API ALL WORKS ******************************* //
 
+let loginMenu = document.querySelectorAll("a[href='./login.html']");
+
+
+
+if(localStorage.getItem('token')){
+  loginMenu[0].innerHTML='logout';
+}
+
+loginMenu[0].addEventListener('click', ()=>{
+  localStorage.removeItem('token');
+})
+
 const getApi = async () => {
   try {
     const response = await fetch("http://localhost:5678/api/works");
